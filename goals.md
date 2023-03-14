@@ -1,8 +1,8 @@
 # Metas y cosas divertidas para esta app
 
-- [ ] Agregar un todo
-- [ ] Ver la lista de todos
-- [ ] Eliminar
+- [x] Agregar un todo
+- [x] Ver la lista de todos
+- [x] Eliminar
 
 ## Features adicionales
 
@@ -21,7 +21,7 @@
 
 ## Cositas falopa para agregar
 
-- [ ] Agregar una fecha de vencimiento, que tire un alert
+- [ ] Agregar una fecha de vencimiento, que tire una notificación de escritorio
 - [ ] Usar Zustand
 
 ## Ideas de humanos del chat:
