@@ -1,0 +1,9 @@
+.todoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+  user-select: none;
+  height: 50px;
+}

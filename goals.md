@@ -7,16 +7,16 @@
 ## Features adicionales
 
 - [ ] Editar un todo
-- [ ] Guardar en local storage
-- [ ] Gestionar todo con un Custom Hook
 - [ ] Marcar como completados
+- [ ] Gestionar todo con un Custom Hook
+- [ ] Guardar en local storage
 - [ ] Filtrar por estado de completitud
 
 ## Validaciones
 
-- [ ] No se pueden agregar todos vacíos
-- [ ] No se pueden agregar todos con menos de 3 caracteres
-- [ ] No se pueden agregar todos con más de 20 caracteres
+- [x] No se pueden agregar todos vacíos
+- [x] No se pueden agregar todos con menos de 3 caracteres
+- [x] No se pueden agregar todos con más de 50 caracteres
 - [ ] Que no se puedan repetir
 
 ## Cositas falopa para agregar

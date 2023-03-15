@@ -1,0 +1,16 @@
+.emptyList {
+  margin-top: '25px';
+}
+
+.emptyListPaper {
+  margin: 1px 0px;
+}
+
+.emptyListBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  width: 100%;
+  user-select: none;
+}
