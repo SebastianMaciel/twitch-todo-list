@@ -2,17 +2,16 @@ import { useReducer, useState } from 'react';
 import { Box, Button, ButtonGroup, Paper, TextField, Typography } from '@mui/material';
 import { Todo } from '../../types/types';
 import styles from './todoItem.module.css';
+import useStore from '../../store/store';
 
 interface TodoItemProps {
   todo: Todo;
-  deleteTodo: (id: string) => void;
 }
 
-const TodoItem = ({ todo, deleteTodo }: TodoItemProps) => {
+const TodoItem = ({ todo }: TodoItemProps) => {
   const [isHover, setIsHover] = useState(false);
   const [isEditing, toggleIsEditing] = useReducer((isEditing) => !isEditing, false);
-
-  console.log('isEditing', isEditing);
+  const removeTodo = useStore((state) => state.removeTodo);
 
   return (
     <Paper key={todo.id} sx={{ marginY: 1 }} elevation={1}>
@@ -31,7 +30,7 @@ const TodoItem = ({ todo, deleteTodo }: TodoItemProps) => {
                 <Button size='small' onClick={toggleIsEditing}>
                   Edit
                 </Button>
-                <Button size='small' onClick={() => deleteTodo(todo.id)} color='error'>
+                <Button size='small' onClick={() => removeTodo(todo.id)} color='error'>
                   Delete
                 </Button>
               </ButtonGroup>
@@ -46,7 +45,7 @@ const TodoItem = ({ todo, deleteTodo }: TodoItemProps) => {
                 <Button size='small' onClick={toggleIsEditing}>
                   Cancel
                 </Button>
-                <Button size='small' onClick={() => deleteTodo(todo.id)} color='error'>
+                <Button size='small' onClick={() => {}} color='error'>
                   Update
                 </Button>
               </ButtonGroup>

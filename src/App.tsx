@@ -1,31 +1,24 @@
-import React, { useState } from 'react';
 import { Box, Button, Container, FormControl, TextField, Typography } from '@mui/material';
-import { v4 as uuidv4 } from 'uuid';
-import { Todo } from './types/types';
-import { mockTodoList } from './mocks/mocks';
-import TodoList from './components/TodoList';
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
+import { v4 as uuidv4 } from 'uuid';
+import useStore from './store/store';
+import { Todo } from './types/types';
+import TodoList from './components/TodoList';
 import './App.css';
 
 function App() {
-  const [todoList, setTodoList] = useState<Todo[]>(mockTodoList);
+  const addTodo = useStore((state) => state.addTodo);
 
   // Función para agregar los todo a la lista
-  const addTodo = (todoDescription: string) => {
+  const addTodoHandler = (todoDescription: string) => {
     const newTodo: Todo = {
       id: uuidv4(),
       description: todoDescription,
       isCompleted: false,
     };
 
-    setTodoList([...todoList, newTodo]);
-  };
-
-  // Buscar y eliminar un Todo
-  const deleteTodo = (id: string) => {
-    const newTodoList = todoList.filter((todo) => todo.id !== id);
-    setTodoList(newTodoList);
+    addTodo(newTodo);
   };
 
   const CustomTodoInput = (props: any) => {
@@ -59,7 +52,7 @@ function App() {
         initialValues={{ todoInput: '' }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
-          addTodo(values.todoInput);
+          addTodoHandler(values.todoInput);
           resetForm();
         }}
       >
@@ -76,7 +69,7 @@ function App() {
           </Form>
         )}
       </Formik>
-      <TodoList todoList={todoList} deleteTodo={deleteTodo} />
+      <TodoList />
     </Container>
   );
 }

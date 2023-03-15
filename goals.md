@@ -8,8 +8,8 @@
 
 - [ ] Editar un todo
 - [ ] Marcar como completados
-- [ ] Gestionar todo con un Custom Hook
-- [ ] Guardar en local storage
+- [x] Gestionar todo con un Custom Hook
+- [x] Guardar en local storage
 - [ ] Filtrar por estado de completitud
 
 ## Validaciones
@@ -22,8 +22,8 @@
 ## Cositas falopa para agregar
 
 - [ ] Agregar una fecha de vencimiento, que tire una notificación de escritorio
-- [ ] Usar Zustand
+- [x] Usar Zustand
 
 ## Ideas de humanos del chat:
 
-Shalo_tw: manejar el state con [Valtio](https://valtio.pmnd.rs/docs/introduction/getting-started)
+- [ ] Shalo_tw: manejar el state con [Valtio](https://valtio.pmnd.rs/docs/introduction/getting-started)
