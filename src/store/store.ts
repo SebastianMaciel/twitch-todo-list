@@ -12,6 +12,7 @@ const initialState: TodoState = {
   todos: useMocks ? mockTodoList : [],
   addTodo: () => {},
   removeTodo: () => {},
+  editTodo: () => {},
   toggleTodo: () => {},
 };
 
@@ -21,6 +22,11 @@ const useStore = create<TodoState>(
       ...initialState,
       addTodo: (todo) => set((state) => ({ todos: [...state.todos, todo] })),
       removeTodo: (id) => set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) })),
+      editTodo: (id, description) => {
+        set((state) => ({
+          todos: state.todos.map((todo) => (todo.id === id ? { ...todo, description } : todo)),
+        }));
+      },
       toggleTodo: (id) =>
         set((state) => ({
           todos: state.todos.map((todo) =>

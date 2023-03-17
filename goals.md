@@ -6,8 +6,8 @@
 
 ## Features adicionales
 
-- [ ] Editar un todo
-- [ ] Marcar como completados
+- [x] Editar un todo
+- [x] Marcar como completados
 - [x] Gestionar todo con un Custom Hook
 - [x] Guardar en local storage
 - [ ] Filtrar por estado de completitud
@@ -23,7 +23,11 @@
 
 - [ ] Agregar una fecha de vencimiento, que tire una notificación de escritorio
 - [x] Usar Zustand
+- [ ] Agregar prioridad a los todos: alta, baja
+- [ ] Que haya una confirmación para eliminar un todo
 
 ## Ideas de humanos del chat:
 
 - [ ] Shalo_tw: manejar el state con [Valtio](https://valtio.pmnd.rs/docs/introduction/getting-started)
+- [ ] utopie\_: Fecha de creación, y mostrar tiempo relativo
+- [ ] wiwiamy: Añadir íconos en vez de palabras en las acciones del todo.
