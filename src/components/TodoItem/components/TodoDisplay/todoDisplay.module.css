@@ -1,0 +1,8 @@
+.createdAt {
+  cursor: pointer;
+  opacity: 0.2;
+}
+
+.createdAt:hover {
+  opacity: 1;
+}

@@ -16,6 +16,7 @@ function App() {
       id: uuidv4(),
       description: todoDescription,
       isCompleted: false,
+      createdAt: new Date().toISOString(),
     };
 
     addTodo(newTodo);
