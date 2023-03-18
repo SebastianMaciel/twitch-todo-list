@@ -13,7 +13,9 @@ const EditTodo = ({ todo, toggleIsEditing }: EditTodoProps) => {
   const CustomTodoInput = (props: any) => {
     const [field, helpers] = useField(props.name);
 
-    return <TextField {...field} {...props} sx={{ width: '70%' }} size='small' />;
+    return (
+      <TextField {...field} {...props} autoComplete='off' sx={{ width: '70%' }} size='small' />
+    );
   };
 
   return (

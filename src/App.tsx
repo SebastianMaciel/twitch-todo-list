@@ -29,6 +29,7 @@ function App() {
       <TextField
         {...field}
         {...props}
+        autoComplete='off'
         error={!!helpers.error}
         helperText={helpers.error}
         id='todo-input'
