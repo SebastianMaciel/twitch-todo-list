@@ -10,7 +10,7 @@
 - [x] Marcar como completados
 - [x] Gestionar todo con un Custom Hook
 - [x] Guardar en local storage
-- [ ] Filtrar por estado de completitud
+- [x] Filtrar por estado de completitud
 
 ## Validaciones
 
@@ -29,5 +29,5 @@
 ## Ideas de humanos del chat:
 
 - [ ] Shalo_tw: manejar el state con [Valtio](https://valtio.pmnd.rs/docs/introduction/getting-started)
-- [ ] utopie\_: Fecha de creación, y mostrar tiempo relativo
-- [ ] wiwiamy: Añadir íconos en vez de palabras en las acciones del todo.
+- [x] utopie\_: Fecha de creación, y mostrar tiempo relativo
+- [x] wiwiamy: Añadir íconos en vez de palabras en las acciones del todo.
