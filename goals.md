@@ -17,14 +17,10 @@
 - [x] No se pueden agregar todos vacíos
 - [x] No se pueden agregar todos con menos de 3 caracteres
 - [x] No se pueden agregar todos con más de 50 caracteres
-- [ ] Que no se puedan repetir
 
 ## Cositas falopa para agregar
 
-- [ ] Agregar una fecha de vencimiento, que tire una notificación de escritorio
 - [x] Usar Zustand
-- [ ] Agregar prioridad a los todos: alta, baja
-- [ ] Que haya una confirmación para eliminar un todo
 
 ## Ideas de humanos del chat:
 

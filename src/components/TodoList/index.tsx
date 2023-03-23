@@ -21,7 +21,7 @@ const TodoList = () => {
   };
 
   // Obtener todos filtrados según el filtro seleccionado
-  const filteredTodos = useMemo(() => getTodos(selectedFilter), [getTodos, selectedFilter]);
+  const filteredTodos = useMemo(() => getTodos(selectedFilter), [getTodos, selectedFilter, todos]);
 
   // Early return si no hay todos
   if (todos.length === 0) return <EmptyList />;
