@@ -8,6 +8,7 @@ const CustomTodoInput = (props: any) => {
     <TextField
       {...field}
       {...props}
+      sx={{ width: '80%', height: '54px' }}
       autoComplete='off'
       error={!!helpers.error}
       helperText={helpers.error}

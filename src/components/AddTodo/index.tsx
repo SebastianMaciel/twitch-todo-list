@@ -25,6 +25,8 @@ const AddTodo = () => {
     <Formik
       initialValues={{ todoInput: '' }}
       validationSchema={validationSchema}
+      validateOnBlur={false}
+      // validateOnChange={false}
       onSubmit={(values, { resetForm }) => {
         addTodoHandler(values.todoInput);
         resetForm();
