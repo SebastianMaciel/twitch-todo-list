@@ -14,7 +14,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
   const handleMouseLeave = () => !isEditing && setIsHover(false);
 
   return (
-    <Paper key={todo.id} sx={{ marginY: 1 }} elevation={1}>
+    <Paper key={todo.id} elevation={1}>
       <Box
         className={styles.todoItem}
         onMouseEnter={handleMouseEnter}

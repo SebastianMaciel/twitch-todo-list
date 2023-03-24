@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react';
-import { Box, Stack, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { useState, useMemo, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import { Box, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import FormatListBulleted from '@mui/icons-material/FormatListBulleted';
 import AccessTime from '@mui/icons-material/AccessTime';
 import DoneAll from '@mui/icons-material/DoneAll';
@@ -10,28 +11,23 @@ import EmptyList from './components/EmptyList';
 import { Filter } from '../../store/types';
 
 const TodoList = () => {
-  const { todos, getTodos } = useStore();
-
   const [selectedFilter, setSelectedFilter] = useState<Filter>('all');
-
-  const handleFilters = (event: React.MouseEvent<HTMLElement>, newFilter: Filter | null) => {
-    if (newFilter !== null) {
-      setSelectedFilter(newFilter);
-    }
-  };
+  const { todos, getTodos, getCompletionResume } = useStore();
+  const total = getCompletionResume();
 
   // Obtener todos filtrados según el filtro seleccionado
   const filteredTodos = useMemo(() => getTodos(selectedFilter), [getTodos, selectedFilter, todos]);
-
-  // Early return si no hay todos
-  if (todos.length === 0) return <EmptyList />;
+  const hasTodos = filteredTodos.length > 0;
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Helmet>
+        <title>{total} - Todo list</title>
+      </Helmet>
       <ToggleButtonGroup
-        sx={{ alignSelf: 'flex-end' }}
+        sx={{ alignSelf: 'flex-end', marginBottom: '1rem' }}
         value={selectedFilter}
-        onChange={handleFilters}
+        onChange={(_e, newFilter) => setSelectedFilter(newFilter)}
         exclusive
       >
         <ToggleButton value='all'>
@@ -45,9 +41,8 @@ const TodoList = () => {
         </ToggleButton>
       </ToggleButtonGroup>
       <Box>
-        {filteredTodos.map((todo: Todo) => (
-          <TodoItem key={todo.id} todo={todo} />
-        ))}
+        {!hasTodos && <EmptyList />}
+        {hasTodos && filteredTodos.map((todo: Todo) => <TodoItem key={todo.id} todo={todo} />)}
       </Box>
     </Box>
   );

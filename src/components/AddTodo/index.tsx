@@ -26,7 +26,6 @@ const AddTodo = () => {
       initialValues={{ todoInput: '' }}
       validationSchema={validationSchema}
       validateOnBlur={false}
-      // validateOnChange={false}
       onSubmit={(values, { resetForm }) => {
         addTodoHandler(values.todoInput);
         resetForm();
@@ -34,7 +33,7 @@ const AddTodo = () => {
     >
       {() => (
         <Form>
-          <FormControl fullWidth sx={{ display: 'flex', height: '80px', m: 2 }}>
+          <FormControl fullWidth sx={{ display: 'flex', height: '80px' }}>
             <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
               <CustomTodoInput name='todoInput' />
               <Button type='submit' variant='outlined' sx={{ ml: 1, height: '54px' }}>

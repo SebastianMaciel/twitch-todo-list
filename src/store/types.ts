@@ -8,7 +8,9 @@ export type TodoState = {
   todos: Todo[];
   addTodo: (todo: Todo) => void;
   getTodos: (filter: Filter) => Todo[];
+  getCompletionResume: () => string;
   removeTodo: (id: string) => void;
+  clearTodos: () => void;
   editTodo: (id: string, description: string) => void;
   toggleTodo: (id: string) => void;
 };

@@ -27,8 +27,14 @@ const useStore = create(
         // Si no es ninguno de los anteriores, devolvemos todos los todos
         return get().todos;
       },
+      getCompletionResume: () => {
+        const totalTodos = get().todos.length;
+        const completedTodos = get().todos.filter((todo) => todo.isCompleted).length;
+        return `${completedTodos}/${totalTodos}`;
+      },
       addTodo: (todo) => set((state) => ({ todos: [...state.todos, todo] })),
       removeTodo: (id) => set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) })),
+      clearTodos: () => set(() => ({ todos: [] })),
       editTodo: (id, description) => {
         set((state) => ({
           todos: state.todos.map((todo) => (todo.id === id ? { ...todo, description } : todo)),
