@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
-import './App.css';
 import SettingsModal from './components/SettingsModal';
 import SettingsIcon from '@mui/icons-material/Settings';
 import IconButton from '@mui/material/IconButton';
+import './App.css';
 
 function App() {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
