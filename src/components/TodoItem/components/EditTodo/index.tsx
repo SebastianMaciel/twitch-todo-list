@@ -1,23 +1,16 @@
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import DoneOutlined from '@mui/icons-material/DoneOutlined';
 import EditOffOutlined from '@mui/icons-material/EditOffOutlined';
 import { toast } from 'react-hot-toast';
-import { Form, Formik, useField } from 'formik';
+import { Form, Formik } from 'formik';
 import useStore from '../../../../store/store';
 import { validationSchema } from '../../utils/validations';
 import { EditTodoProps } from './types';
 import Tooltip from '@mui/material/Tooltip';
+import CustomTodoInput from './components/CustomTodoInput';
 
 const EditTodo = ({ todo, toggleIsEditing }: EditTodoProps) => {
   const { editTodo } = useStore();
-
-  const CustomTodoInput = (props: any) => {
-    const [field, helpers] = useField(props.name);
-
-    return (
-      <TextField {...field} {...props} autoComplete='off' sx={{ width: '70%' }} size='small' />
-    );
-  };
 
   const handleEditTodo = (values: any) => {
     const err = editTodo(todo.id, values.todoInput);
@@ -35,7 +28,12 @@ const EditTodo = ({ todo, toggleIsEditing }: EditTodoProps) => {
     <Formik
       initialValues={{ todoInput: todo.description }}
       validationSchema={validationSchema}
-      onSubmit={(values) => handleEditTodo(values)}
+      validateOnBlur={false}
+      validateOnChange={false}
+      onSubmit={(values) => {
+        console.log('EditTodo ~ values:', values);
+        handleEditTodo(values);
+      }}
     >
       {() => (
         <Form style={{ width: '100%' }}>

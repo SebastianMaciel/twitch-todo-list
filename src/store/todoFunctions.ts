@@ -61,8 +61,12 @@ export const editTodo: EditTodo = (set, get, id, description) => {
   const todoExists = state.todos.find(
     (t) => t.description.toLocaleLowerCase().trim() === description.toLocaleLowerCase().trim()
   );
-  if (todoExists && !state.allowRepeatedDescriptions)
+
+  // Si el todo existe y no es el mismo que se está editando,
+  // y no se permite repetir descripciones, se devuelve un error
+  if (todoExists && todoExists.id !== id && !state.allowRepeatedDescriptions) {
     return { err: "Can't repeat descriptions! \n You can allow this in the settings." };
+  }
 
   set({ todos: state.todos.map((todo) => (todo.id === id ? { ...todo, description } : todo)) });
 };
