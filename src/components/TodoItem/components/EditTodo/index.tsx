@@ -38,7 +38,7 @@ const EditTodo = ({ todo, toggleIsEditing }: EditTodoProps) => {
       {() => (
         <Form style={{ width: '100%' }}>
           <Box display='flex' width='100%' alignItems='center' justifyContent='space-between'>
-            <CustomTodoInput name='todoInput' />
+            <CustomTodoInput name='todoInput' aria-label='Edit todo' />
 
             <Box display='flex' alignItems='center' justifyContent='space-between'>
               <Tooltip title='Discard edition' placement='top'>

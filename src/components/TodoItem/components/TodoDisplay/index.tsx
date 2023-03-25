@@ -17,7 +17,7 @@ const TodoDisplay = ({ todo }: TodoDisplayProps) => {
         checked={todo.isCompleted}
         onChange={() => toggleTodo(todo.id)}
         icon={<Done />}
-        checkedIcon={<DoneAll color='success' />}
+        checkedIcon={<DoneAll color='success' aria-role='button' aria-label='Change todo status' />}
       />
       <Box ml={1}>
         <Typography variant='body1' noWrap>

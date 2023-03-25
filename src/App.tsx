@@ -21,7 +21,7 @@ function App() {
         <Typography variant='h3' my={3} fontWeight='light' textAlign='center'>
           Todo list
         </Typography>
-        <IconButton onClick={handleOpenSettingsModal}>
+        <IconButton onClick={handleOpenSettingsModal} aria-label='settings'>
           <SettingsIcon />
         </IconButton>
       </Box>

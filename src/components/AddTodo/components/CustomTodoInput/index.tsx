@@ -13,6 +13,7 @@ const CustomTodoInput = (props: any) => {
       error={!!helpers.error}
       helperText={helpers.error}
       id='todo-input'
+      aria-label='Add todo'
     />
   );
 };

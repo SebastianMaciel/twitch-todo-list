@@ -30,13 +30,13 @@ const TodoList = () => {
         onChange={(_e, newFilter) => setSelectedFilter(newFilter)}
         exclusive
       >
-        <ToggleButton value='all'>
+        <ToggleButton value='all' aria-role='button' aria-label='Show all todos'>
           <FormatListBulleted />
         </ToggleButton>
-        <ToggleButton value='complete'>
+        <ToggleButton value='complete' aria-role='button' aria-label='Show completed todos'>
           <DoneAll />
         </ToggleButton>
-        <ToggleButton value='incomplete'>
+        <ToggleButton value='incomplete' aria-role='button' aria-label='Show pending todos'>
           <AccessTime />
         </ToggleButton>
       </ToggleButtonGroup>
