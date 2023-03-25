@@ -23,6 +23,7 @@ const SettingsModal = ({ open, onClose }: Props) => {
     toast.success('Your information and settings have been deleted successfully', {
       style: { borderRadius: '5px', background: '#333', color: '#fff' },
       duration: 5000,
+      id: 'remove local storage',
     });
     onClose();
     clearTodos();
@@ -33,14 +34,28 @@ const SettingsModal = ({ open, onClose }: Props) => {
   };
 
   const downloadJSONFile = () => {
-    const dataStr = JSON.stringify(todos, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Todo list.json';
-    link.click();
-    URL.revokeObjectURL(url);
+    try {
+      const dataStr = JSON.stringify(todos, null, 2);
+      const dataBlob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(dataBlob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Todo list.json';
+      link.click();
+      URL.revokeObjectURL(url);
+
+      toast.success('Your todo list has been downloaded successfully', {
+        style: { borderRadius: '5px', background: '#333', color: '#fff' },
+        duration: 5000,
+        id: 'download json file',
+      });
+    } catch (error) {
+      toast.error('There was a problem downloading the JSON file. Please try again later.', {
+        style: { borderRadius: '5px', background: '#333', color: '#fff' },
+        duration: 5000,
+        id: 'download json file error',
+      });
+    }
   };
 
   return (

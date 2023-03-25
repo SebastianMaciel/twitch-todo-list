@@ -23,6 +23,7 @@ const AddTodo = () => {
     if (err) {
       toast.error(err.err, {
         style: { borderRadius: '5px', background: '#333', color: '#fff' },
+        id: 'duplicate',
       });
       return;
     }

@@ -23,7 +23,8 @@ const EditTodo = ({ todo, toggleIsEditing }: EditTodoProps) => {
     const err = editTodo(todo.id, values.todoInput);
     if (err) {
       toast.error(err.err, {
-        style: { borderRadius: '10px', background: '#333', color: '#fff' },
+        style: { borderRadius: '5px', background: '#333', color: '#fff' },
+        id: 'duplicate',
       });
       return;
     }
