@@ -1,6 +1,17 @@
+// store.ts
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { Filter, PersistedTodoState, TodoState } from './types';
+import {
+  getTodos,
+  getCompletionResume,
+  addTodo,
+  removeTodo,
+  clearTodos,
+  editTodo,
+  toggleTodo,
+  setAllowRepeatedDescriptions,
+} from './todoFunctions';
 
 // Importa los mocks
 import { mockTodoList } from '../mocks/mocks';
@@ -12,40 +23,15 @@ const useStore = create(
   persist<PersistedTodoState & TodoState>(
     (set, get) => ({
       todos: useMocks ? mockTodoList : [],
-      // Función para traer la lista todos según el estado de isCompleted
-      // Le pasamos por argumentos un string que puede ser 'all', 'completed' o 'incomplete'
-      getTodos: (filter: Filter) => {
-        // Si el filtro es 'all' devolvemos todos los todos
-        if (filter === 'all') return get().todos;
-
-        // Si el filtro es 'completed' devolvemos todos los todos que estén completados
-        if (filter === 'complete') return get().todos.filter((todo) => todo.isCompleted);
-
-        // Si el filtro es 'incomplete' devolvemos todos los todos que no estén completados
-        if (filter === 'incomplete') return get().todos.filter((todo) => !todo.isCompleted);
-
-        // Si no es ninguno de los anteriores, devolvemos todos los todos
-        return get().todos;
-      },
-      getCompletionResume: () => {
-        const totalTodos = get().todos.length;
-        const completedTodos = get().todos.filter((todo) => todo.isCompleted).length;
-        return `${completedTodos}/${totalTodos}`;
-      },
-      addTodo: (todo) => set((state) => ({ todos: [...state.todos, todo] })),
-      removeTodo: (id) => set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) })),
-      clearTodos: () => set(() => ({ todos: [] })),
-      editTodo: (id, description) => {
-        set((state) => ({
-          todos: state.todos.map((todo) => (todo.id === id ? { ...todo, description } : todo)),
-        }));
-      },
-      toggleTodo: (id) =>
-        set((state) => ({
-          todos: state.todos.map((todo) =>
-            todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
-          ),
-        })),
+      allowRepeatedDescriptions: false,
+      setAllowRepeatedDescriptions: (value: boolean) => setAllowRepeatedDescriptions(set, value),
+      getTodos: (filter: Filter) => getTodos(get, filter),
+      getCompletionResume: () => getCompletionResume(get),
+      addTodo: (todo) => addTodo(set, get, todo),
+      removeTodo: (id) => removeTodo(set, get, id),
+      clearTodos: () => clearTodos(set, get),
+      editTodo: (id, description) => editTodo(set, get, id, description),
+      toggleTodo: (id) => toggleTodo(set, get, id),
     }),
     {
       name: 'todo-list',

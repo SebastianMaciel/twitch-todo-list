@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box, Container, Typography } from '@mui/material';
+import { Toaster } from 'react-hot-toast';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import SettingsModal from './components/SettingsModal';
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <Container maxWidth='sm'>
+      <Toaster />
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant='h3' my={3} fontWeight='light' textAlign='center'>
           Todo list

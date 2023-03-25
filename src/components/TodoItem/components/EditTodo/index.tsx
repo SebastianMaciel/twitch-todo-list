@@ -1,6 +1,7 @@
 import { Box, Button, TextField } from '@mui/material';
 import DoneOutlined from '@mui/icons-material/DoneOutlined';
 import EditOffOutlined from '@mui/icons-material/EditOffOutlined';
+import { toast } from 'react-hot-toast';
 import { Form, Formik, useField } from 'formik';
 import useStore from '../../../../store/store';
 import { validationSchema } from '../../utils/validations';
@@ -18,14 +19,22 @@ const EditTodo = ({ todo, toggleIsEditing }: EditTodoProps) => {
     );
   };
 
+  const handleEditTodo = (values: any) => {
+    const err = editTodo(todo.id, values.todoInput);
+    if (err) {
+      toast.error(err.err, {
+        style: { borderRadius: '10px', background: '#333', color: '#fff' },
+      });
+      return;
+    }
+    toggleIsEditing();
+  };
+
   return (
     <Formik
       initialValues={{ todoInput: todo.description }}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        editTodo(todo.id, values.todoInput);
-        toggleIsEditing();
-      }}
+      onSubmit={(values) => handleEditTodo(values)}
     >
       {() => (
         <Form style={{ width: '100%' }}>
