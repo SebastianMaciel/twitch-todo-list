@@ -1,6 +1,27 @@
 # Todo List
 
-Esta es una aplicación de lista de tareas simple construida con React, utilizando Material UI. La aplicación permite agregar, eliminar y marcar tareas como completadas, entre otras cosas.
+Esta es una aplicación de lista de tareas simple construida con React/Typescript, utilizando Material UI. Usando Zustand como gestor de estado, Formik y Yup para la validación de inputs.
+
+## Demo
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6d9e3df1-f6fc-4bf4-8b39-90ed5dc122fd/deploy-status)](https://app.netlify.com/sites/twitch-todo-app/deploys)
+Visitá la app en [https://twitch-todo-app.netlify.app/](https://twitch-todo-app.netlify.app/)
+
+## Características
+
+- Agregar, editar y eliminar tareas.
+- Marcar tareas como completadas o pendientes.
+- Filtrar tareas por estado.
+- Validación de formulario.
+- Persistencia de datos en el navegador.
+
+## Extras
+
+- Configuración de la app
+- Opción para permitir tareas repetidas
+- Descarga de la lista de tareas en formato JSON
+- Eliminación del localStorage
+- Resumen de tareas en el título de la página
 
 ### Requisitos
 
