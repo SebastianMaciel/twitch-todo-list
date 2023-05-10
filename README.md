@@ -30,14 +30,14 @@ Visitá la app en [https://twitch-todo-app.netlify.app/](https://twitch-todo-app
 
 ### Instalación
 
-1. Clona el repositorio:
+1. Cloná el repositorio:
 
 ```bash
 git clone https://github.com/SebastianMaciel/twitch-todo-list.git
 cd twitch-todo-list
 ```
 
-2. Instala las dependencias:
+2. Instalá las dependencias:
 
 ```bash
 yarn install
@@ -45,23 +45,23 @@ yarn install
 
 ### Uso
 
-1. Ejecuta la aplicación en modo de desarrollo:
+1. Ejecutá la aplicación en modo de desarrollo:
 
 ```bash
 yarn dev
 ```
 
-2. Abre http://localhost:5173 en tu navegador.
+2. Abrí http://localhost:5173 en tu navegador.
 
 ### Construcción
 
-Para construir la aplicación, ejecuta:
+Para construir la aplicación, ejecutá:
 
 ```bash
 yarn build
 ```
 
-Esto generará una versión optimizada para producción en el directorio `dist`.
+Esto va a generar una versión optimizada para producción en el directorio `dist`.
 
 ### Licencia
 
